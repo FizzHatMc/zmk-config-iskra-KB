@@ -6,7 +6,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = 
+            bindings = <
                 &kp M &kp W &kp K
                 &kp A &kp S &kp D
                 &kp L &kp H &none &mo 1
@@ -14,7 +14,7 @@
         };
 
         freeze_layer {
-            bindings = 
+            bindings = <
                 &kt M &kt W &kt K
                 &kt A &kt S &kt D
                 &kt L &kt H &none &trans
