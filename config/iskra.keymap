@@ -7,13 +7,9 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // ┌───┬───┬───┐
-            // │ M │ W │ K │
-            // ├───┼───┼───┤
-            // │ A │ S │ D │
-            // ├───┼───┼───┼──────┐
-            // │ L │ H │   │ FREZ │
-            // └───┴───┴───┴──────┘
+            // M | W | K
+            // A | S | D
+            // L | H | -- | FREEZE(hold)
             bindings =
                 &kp M    &kp W    &kp K
                 &kp A    &kp S    &kp D
@@ -22,15 +18,11 @@
         };
 
         freeze_layer {
-            // Hold FREEZE, then tap any key to lock it held.
-            // Hold FREEZE, tap same key again to release it.
-            // ┌──────┬──────┬──────┐
-            // │ KT M │ KT W │ KT K │
-            // ├──────┼──────┼──────┤
-            // │ KT A │ KT S │ KT D │
-            // ├──────┼──────┼──────┼───────┐
-            // │ KT L │ KT H │      │ (hold)│
-            // └──────┴──────┴──────┴───────┘
+            // Hold FREEZE + tap key to lock it held
+            // Hold FREEZE + tap same key again to release
+            // KT M | KT W | KT K
+            // KT A | KT S | KT D
+            // KT L | KT H |  -- | (held)
             bindings =
                 &kt M    &kt W    &kt K
                 &kt A    &kt S    &kt D
