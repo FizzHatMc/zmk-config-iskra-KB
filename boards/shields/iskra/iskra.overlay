@@ -22,19 +22,19 @@
 &pro_micro {
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
+        diode-direction = "row2col"; // If keys don't work, try "col2row"
 
         row-gpios
-            = <&pro_micro_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&pro_micro_d 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&pro_micro_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&pro_micro_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 002
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 113
+            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 009
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 010
             ;
 
         col-gpios
-            = <&pro_micro_d 4 GPIO_ACTIVE_LOW>
-            , <&pro_micro_d 5 GPIO_ACTIVE_LOW>
-            , <&pro_micro_d 3 GPIO_ACTIVE_LOW>
+            = <&gpio1 6 GPIO_ACTIVE_LOW> // 106
+            , <&gpio1 4 GPIO_ACTIVE_LOW> // 104
+            , <&gpio1 0 GPIO_ACTIVE_LOW> // 100
             ;
     };
 };
