@@ -1,16 +1,72 @@
+/*
+ * Key positions in the 3x3 matrix:
+ *   0(M)  1(W)  2(K)
+ *   3(A)  4(S)  5(D)
+ *   6(L)  7(H)  8(FUNC/FREEZE)
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
+    /* ── COMBOS ─────────────────────────────────────────────
+       When FREEZE (pos 8) + any key pressed simultaneously,
+       fire &kt to latch/unlatch that key.
+       timeout-ms: 80ms window to count as simultaneous.
+    ── */
+    combos {
+        compatible = "zmk,combos";
+
+        freeze_w {
+            timeout-ms = 80;
+            key-positions = <1 8>;    /* W + FREEZE */
+            bindings = <&kt W>;
+        };
+        freeze_a {
+            timeout-ms = 80;
+            key-positions = <3 8>;    /* A + FREEZE */
+            bindings = <&kt A>;
+        };
+        freeze_s {
+            timeout-ms = 80;
+            key-positions = <4 8>;    /* S + FREEZE */
+            bindings = <&kt S>;
+        };
+        freeze_d {
+            timeout-ms = 80;
+            key-positions = <5 8>;    /* D + FREEZE */
+            bindings = <&kt D>;
+        };
+        freeze_l {
+            timeout-ms = 80;
+            key-positions = <6 8>;    /* L + FREEZE */
+            bindings = <&kt L>;
+        };
+        freeze_h {
+            timeout-ms = 80;
+            key-positions = <7 8>;    /* H + FREEZE */
+            bindings = <&kt H>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            // ┌─────┬─────┬─────┐
+            // │  M  │  W  │  K  │
+            // ├─────┼─────┼─────┤
+            // │  A  │  S  │  D  │
+            // ├─────┼─────┼─────┤
+            // │  L  │  H  │ FRZ │
+            // └─────┴─────┴─────┘
             bindings = <
-                &kp M &kp W &kp K
-                &kp A &kp S &kp D
-                &kp L &kp H &none &none
+                &kp M     &kp W     &kp K
+                &kp A     &kp S     &kp D
+                &kp L     &kp H     &none
             >;
+            /* pos 8 = &none because it's handled exclusively via combos */
         };
     };
 };
