@@ -2,7 +2,7 @@
     "name": "Iskra Numpad",
     "maintainers": ["VostokLabs"],
     "features": ["keys"],
-    "matrix": { "rows": 3, "cols": 4, "diode_direction": "COL2ROW" },
+    "matrix": { "rows": 3, "cols": 4, "diode_direction": "ROW2COL" },
     "layouts": {
       "keymap": {
         "layout": [
