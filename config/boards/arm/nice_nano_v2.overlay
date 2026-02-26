@@ -1,11 +1,16 @@
 &led0 {
-	status = "disabled";
+    status = "disabled";
 };
 
-
-/* Prevent any board LED from being driven by the application */
 / {
-	/delete-node/ &leds;
+    /delete-node/ &leds;
 };
 
 
+&usbd {
+    status = "okay";
+};
+
+&zephyr_udc0 {
+    vbus-detect-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+};
