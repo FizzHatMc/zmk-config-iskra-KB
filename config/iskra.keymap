@@ -3,79 +3,34 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        freeze_w: freeze_w {
-            timeout-ms = <80>;
-            key-positions = <1 8>;
-            bindings = <&kt W>;
-        };
-
-        freeze_a: freeze_a {
-            timeout-ms = <80>;
-            key-positions = <3 8>;
-            bindings = <&kt A>;
-        };
-
-        freeze_s: freeze_s {
-            timeout-ms = <80>;
-            key-positions = <4 8>;
-            bindings = <&kt S>;
-        };
-
-        freeze_d: freeze_d {
-            timeout-ms = <80>;
-            key-positions = <5 8>;
-            bindings = <&kt D>;
-        };
-
-        freeze_l: freeze_l {
-            timeout-ms = <80>;
-            key-positions = <6 8>;
-            bindings = <&kt L>;
-        };
-
-        freeze_h: freeze_h {
-            timeout-ms = <80>;
-            key-positions = <7 8>;
-            bindings = <&kt H>;
-        };
-
-        panic_unfreeze: panic_unfreeze {
-            timeout-ms = <100>;
-            key-positions = <0 2>;
-            bindings = <&macro_unfreeze_all>;
-        };
-    };
-
-    macros {
-        macro_unfreeze_all: macro_unfreeze_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kt W>, <&kt A>, <&kt S>, <&kt D>, <&kt L>, <&kt H>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp M       &kp W       &kp K
-                &kp A       &kp S       &kp D
-                &kp L       &kp H       &none       &kp LSHIFT
+                &kp M  &kp W  &kp K
+                &kp A  &kp S  &kp D
+                &kp L  &kp H  &mo 1
+                       &kp LSHIFT
             >;
         };
 
+        freeze_layer {
+            bindings = <
+                &kt M  &kt W  &kt K
+                &kt A  &kt S  &kt D
+                &kt L  &kt H  &trans
+                       &trans
+            >;
+        };
 
-          bt_layer {
-              bindings = <
-                  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
-                  &bt BT_SEL 3   &bt BT_SEL 4   &bt BT_CLR
-                  &bt BT_PRV     &bt BT_NXT     &none          &trans
-              >;
-          };
-
+        bt_layer {
+            bindings = <
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+                &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+                &bt BT_PRV    &bt BT_NXT    &none
+                              &trans
+            >;
+        };
     };
 };

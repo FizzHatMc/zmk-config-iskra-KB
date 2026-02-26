@@ -3,15 +3,18 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
+        zmk,matrix_transform = &iskra_transform;
     };
 
     iskra_transform: iskra_transform {
         compatible = "zmk,matrix-transform";
         columns = <3>;
-        rows = <2>;
+        rows = <4>;
         map = <
             RC(0,0) RC(0,1) RC(0,2)
             RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+                    RC(3,1)
         >;
     };
 };
@@ -24,6 +27,8 @@
         row-gpios
             = <&pro_micro_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&pro_micro_d 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&pro_micro_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&pro_micro_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
 
         col-gpios
