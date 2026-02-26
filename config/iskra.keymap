@@ -69,13 +69,6 @@
         };
 
 
-          ── OPTIONAL LAYER 1: BT / Config ───────────────────────
-          Activate by holding the spare key (pos 9) if you change
-          it to &mo 1. Lets you switch BT profiles without
-          reflashing firmware.
-
-          Uncomment this block if you want it:
-
           bt_layer {
               bindings = <
                   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
