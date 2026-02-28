@@ -10,7 +10,3 @@
 &usbd {
     status = "okay";
 };
-
-&zephyr_udc0 {
-    vbus-detect-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
-};
