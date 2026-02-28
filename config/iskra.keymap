@@ -10,7 +10,7 @@
             bindings = <
                 &kp M  &kp W  &kp K
                 &kp A  &kp S  &kp D
-                &kp L  &kp H  &mo 1
+                &kp L  &kp H  &tog 1
                        &kp LSHIFT
             >;
         };
@@ -19,8 +19,8 @@
             bindings = <
                 &kt M  &kt W  &kt K
                 &kt A  &kt S  &kt D
-                &kt L  &kt H  &trans
-                       &trans
+                &kt L  &kt H  &tog 1
+                       &mo 2
             >;
         };
 
