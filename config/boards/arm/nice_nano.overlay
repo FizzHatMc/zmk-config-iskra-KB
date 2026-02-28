@@ -1,8 +1,0 @@
-// config/boards/arm/nice_nano.overlay
-&usbd {
-    status = "okay";
-};
-
-&led0 {
-    status = "disabled";
-};
