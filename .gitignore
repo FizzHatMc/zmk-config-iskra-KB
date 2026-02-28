@@ -1,2 +1,8 @@
 
 .zmk/
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/prettier.xml
+.idea/vcs.xml
+.idea/zmk-config-iskra.iml
