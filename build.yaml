@@ -2,3 +2,5 @@ include:
   - board: nice_nano
     shield: iskra
     artifact-name: iskra
+  - board: nice_nano
+    artifact-name: nice_nano_bare
